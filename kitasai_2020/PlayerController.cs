@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour{
 	public float speed = 8f;
 	// public float life = 3f;
 
+	public string blockTag = "Block";
+
 	// public GameObject textObject;
 
 	void Start(){
@@ -14,15 +16,19 @@ public class PlayerController : MonoBehaviour{
 	}
 
 	// 当たり判定
-	/*void OnCollisionEnter2D(Collision2D collision)
+	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(life == 0)
+		if(collision.collider.tag == blockTag)
+		{
+			SceneManager.LoadScene("GameOver");
+		}
+		/*if(life == 0)
 		{
 			// SceneManager.LoadScene("GameOver");
 			transform.Translate(-10, 0, 0);
-		}
-		life--;
-	}*/
+		}*/
+		// life--;
+	}
 
 	void Update(){
 		/* if(textObject.GetComponent<TimerController>().seconds > 0)
@@ -35,7 +41,7 @@ public class PlayerController : MonoBehaviour{
 		} else {
 			transform.Translate(speed * Time.deltaTime, 0, 0);
 		}
-		transform.position = new Vector2(Mathf.Clamp(transform.position.x, -10f, 20f), Mathf.Clamp(transform.position.y, -30f, 50f));
+		transform.position = new Vector2(Mathf.Clamp(transform.position.x, -20f, 20f), Mathf.Clamp(transform.position.y, -30f, 50f));
 
 		if(transform.position.y < -20)
 		{
