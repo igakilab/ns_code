@@ -41,5 +41,9 @@ public class PlayerController : MonoBehaviour{
 		{
 			SceneManager.LoadScene("GameOver");
 		}
+		if(transform.position.x < 19)
+		{
+			SceneManager.LoadScene("GameOver");
+		}
 	}
 }
