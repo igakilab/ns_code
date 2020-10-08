@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
 	public float speed = 8f;
-	public float life = 3f;
+	// public float life = 3f;
 
 	// public GameObject textObject;
 
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour{
 		{
 			SceneManager.LoadScene("GameOver");
 		}
-		if(transform.position.x < 19)
+		if(transform.position.x > 19)
 		{
 			SceneManager.LoadScene("GameOver");
 		}
