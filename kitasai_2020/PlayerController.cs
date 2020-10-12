@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour
+{
 	public float speed = 8f;
 	public float life = 3f;
 	public int jump = 0;
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviour{
 
 	// public GameObject textObject;
 
-	void Start(){
+	void Start()
+	{
 		// textObject = GameObject.Find("Timer");
 	}
 
@@ -35,13 +37,15 @@ public class PlayerController : MonoBehaviour{
 		}
 	}
 
-	void Update(){
+	void Update()
+	{
 		/* if(textObject.GetComponent<TimerController>().seconds > 0)
 		{
 			return;
 		}*/
 		
-		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){
+		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+		{
 			if(jump == 0 || jump == 1)
 			{
 				transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
