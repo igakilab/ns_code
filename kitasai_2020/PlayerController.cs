@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour{
 	public float speed = 8f;
 	public float life = 3f;
+	public int jump = 0;
 
 	public string blockTag = "Block";
 
@@ -41,11 +42,22 @@ public class PlayerController : MonoBehaviour{
 		}*/
 		
 		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)){
-			transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+			if(jump == 0 || jump == 1)
+			{
+				transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+				jump++;
+			}else
+			{
+				transform.Translate(speed * Time.deltaTime, 0, 0);
+			}
 		} else {
 			transform.Translate(speed * Time.deltaTime, 0, 0);
 		}
 		transform.position = new Vector2(Mathf.Clamp(transform.position.x, -20f, 20f), Mathf.Clamp(transform.position.y, -30f, 50f));
+		if(jump == 2)
+		{
+			jump = 0;
+		}
 
 		if(transform.position.y < -20)
 		{
