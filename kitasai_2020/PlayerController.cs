@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
 	public float speed = 8f;
-	// public float life = 3f;
+	public float life = 3f;
 
 	public string blockTag = "Block";
 
@@ -18,16 +18,20 @@ public class PlayerController : MonoBehaviour{
 	// 当たり判定
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.collider.tag == blockTag)
+		
+		if(life == 0)
 		{
-			SceneManager.LoadScene("GameOver");
+			if(collision.collider.tag == blockTag)
+			{
+				SceneManager.LoadScene("GameOver");
+			}
+		}else
+		{
+			if(collision.collider.tag == blockTag)
+			{
+				life--;
+			}
 		}
-		/*if(life == 0)
-		{
-			// SceneManager.LoadScene("GameOver");
-			transform.Translate(-10, 0, 0);
-		}*/
-		// life--;
 	}
 
 	void Update(){
