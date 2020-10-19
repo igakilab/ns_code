@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 		{
 			if(jump == 0 || jump == 1)
 			{
-				transform.Translate(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+				transform.Translate(speed * Time.deltaTime * 2, speed * Time.deltaTime * 2, 0);
 				jump++;
 			}else
 			{
